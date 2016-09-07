@@ -1,0 +1,55 @@
+{
+  "name": "ImgOut",
+  "description": "Image Thumbnail Microservice with Elixir OTP",
+  "repository": "https://github.com/mustafaturan/imgout/tree/call_services_directly_from_server",
+  "keywords": ["thumbnail", "image", "graphicsmagick", "imagemagick", "microservice", "elixir"],
+  "buildpacks": [
+    { "url": "https://github.com/a2ikm/heroku-buildpack-libjpeg62.git" },
+    { "url": "https://github.com/Xerpa/heroku-buildpack-graphicsmagick.git" },
+    { "url": "https://github.com/mcollina/heroku-buildpack-graphicsmagick.git" },
+    { "url": "https://github.com/HashNuke/heroku-buildpack-elixir.git" },
+    { "url": "https://github.com/leadferry/heroku-buildpack-memcached.git" }
+  ],
+  "env": {
+    "MEMCACHE_POOL_SIZE": {
+      "description": "Memcache connection pool size",
+      "value": "255"
+    },
+    "MEMCACHE_POOL_MAX_OVERFLOW": {
+      "description": "Memcache max pool overflow",
+      "value": "0"
+    },
+    "MEMCACHE_SERVER": {
+      "description": "Memcache server",
+      "value": "localhost",
+      "required": false
+    },
+    "MEMCACHE_PORT": {
+      "description": "Memcache port",
+      "value": "11211",
+      "required": false
+    },
+    "MEMCACHE_USERNAME": {
+      "description": "Memcache username",
+      "value": "",
+      "required": false
+    },
+    "MEMCACHE_PASSWORD": {
+      "description": "Memcache password",
+      "value": "",
+      "required": false
+    },
+    "REMOTE_STORAGE_URL": {
+      "description": "Remote storage url endpoint. It can be any http/https url which represents source of images. If you just want to test then you can enter http://your_app_name.herokuapp.com/images",
+      "value": ""
+    },
+    "SERVER_ACCEPTORS": {
+      "description": "Cowboy server acceptors",
+      "value": "50"
+    }
+  },
+  "addons": [
+  ],
+  "scripts": {
+  }
+}
