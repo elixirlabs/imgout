@@ -14,14 +14,17 @@ defmodule ImgOut.StorageWorker do
     do: {:ok, img}
   def read({:error, status, reason}),
     do: {:error, status, reason}
-  def read(id),
-    do: GenServer.call(__MODULE__, {:read, id})
+  def read(id) do
+    :poolboy.transaction(:storage_worker_pool, fn(worker) ->
+      GenServer.call(worker, {:read, id})
+    end)
+  end
 
   ## Callbacks
 
   @doc false
-  def start_link,
-    do: GenServer.start_link(__MODULE__, [], name: __MODULE__)
+  def start_link(_opts),
+    do: GenServer.start_link(__MODULE__, [])
 
   @doc false
   def init(_opts),

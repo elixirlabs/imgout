@@ -10,22 +10,27 @@ defmodule ImgOut.CacheWorker do
   @doc """
   Read data from cache.
   """
-  def read(key),
-    do: GenServer.call(__MODULE__, {:read, key})
+  def read(key) do
+    :poolboy.transaction(:cache_worker_pool, fn(worker) ->
+      GenServer.call(worker, {:read, key})
+    end)
+  end
 
   @doc """
   Write data to cache.
   """
   def write(key, val) do
-    GenServer.cast(__MODULE__, {:write, key, val})
+    :poolboy.transaction(:cache_worker_pool, fn(worker) ->
+      GenServer.cast(worker, {:write, key, val})
+    end)
     {:ok, val}
   end
 
   ## Callbacks
 
   @doc false
-  def start_link,
-    do: GenServer.start_link(__MODULE__, [], name: __MODULE__)
+  def start_link(_opts),
+    do: GenServer.start_link(__MODULE__, [])
 
   @doc false
   def init(_opts),
