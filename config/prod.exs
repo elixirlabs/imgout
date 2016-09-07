@@ -18,4 +18,4 @@ config :imgout,
   cache_pool_max_overflow: (System.get_env("CACHE_POOL_MAX_OVERFLOW") || "0") |> String.to_integer,
   remote_storage_url: System.get_env("REMOTE_STORAGE_URL"),
   remote_storage_pool_size: (System.get_env("REMOTE_STORAGE_POOL_SIZE") || "10") |> String.to_integer,
-  remote_storage_pool_max_overflow: (System.get_env("REMOTE_STORAGE_POOL_MAX_OVERFLOW") || "0") |> String.to_integer,
+  remote_storage_pool_max_overflow: (System.get_env("REMOTE_STORAGE_POOL_MAX_OVERFLOW") || "0") |> String.to_integer
