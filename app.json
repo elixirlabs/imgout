@@ -1,0 +1,67 @@
+{
+  "name": "ImgOut",
+  "description": "Image Thumbnail Microservice with Elixir OTP",
+  "repository": "https://github.com/mustafaturan/imgout",
+  "keywords": ["thumbnail", "image", "microservice", "elixir"],
+  "buildpacks": [
+    { "url": "https://github.com/a2ikm/heroku-buildpack-libjpeg62.git" },
+    { "url": "https://github.com/Xerpa/heroku-buildpack-graphicsmagick.git" },
+    { "url": "https://github.com/mcollina/heroku-buildpack-graphicsmagick.git" },
+    { "url": "https://github.com/HashNuke/heroku-buildpack-elixir.git" },
+    { "url": "https://github.com/leadferry/heroku-buildpack-memcached.git" }
+  ],
+  "env": {
+    "MEMCACHE_POOL_SIZE": {
+      "description": "Memcache connection pool size",
+      "value": "10"
+    },
+    "MEMCACHE_POOL_MAX_OVERFLOW": {
+      "description": "Memcache max pool overflow",
+      "value": "0"
+    },
+    "MEMCACHE_SERVER": {
+      "description": "Memcache server",
+      "value": "localhost",
+      "required": false
+    },
+    "MEMCACHE_PORT": {
+      "description": "Memcache port",
+      "value": "11211",
+      "required": false
+    },
+    "MEMCACHE_USERNAME": {
+      "description": "Memcache username",
+      "value": "",
+      "required": false
+    },
+    "MEMCACHE_PASSWORD": {
+      "description": "Memcache password",
+      "value": "",
+      "required": false
+    },
+    "REMOTE_STORAGE_URL": {
+      "description": "Remote storage url endpoint",
+      "value": ""
+    },
+    "GM_POOL_SIZE": {
+      "description": "Image processor pool size",
+      "value": "10"
+    },
+    "GM_POOL_MAX_OVERFLOW": {
+      "description": "Image processor max pool overflow",
+      "value": "0"
+    },
+    "GM_TIMEOUT": {
+      "description": "Image processor timeout",
+      "value": "15000"
+    },
+    "SERVER_ACCEPTORS": {
+      "description": "Cowboy server acceptors",
+      "value": "50"
+    }
+  },
+  "addons": [
+  ],
+  "scripts": {
+  }
+}
