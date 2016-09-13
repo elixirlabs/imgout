@@ -7,8 +7,8 @@ On the fly thumbnail generator microservice using Elixir/OTP and exmagick.
 Install graphsmagick, memcached and fetch the repo:
 
 ```shell
-brew install graphmagick
-brew install memcached
+brew install graphicsmagick # necessary for exmagick
+brew install memcached # necessary for caching
 git clone git@github.com:mustafaturan/imgout.git
 cd imgout
 ```
@@ -22,15 +22,19 @@ config :memcache_client,
   auth_method: :none,
   username: "",
   password: "",
-  pool_size: 10,
-  pool_max_overflow: 10
+  pool_size: 50,
+  pool_max_overflow: 0
 
 config :imgout,
-  remote_storage_url: "http://localhost:4000/images",
   acceptors: 50,
-  gm_pool_size: 10,
+  gm_pool_size: 25,
   gm_pool_max_overflow: 0,
-  gm_timeout: 15000
+  gm_timeout: 5000,
+  cache_pool_size: 50,
+  cache_pool_max_overflow: 0,
+  remote_storage_url: "http://localhost:4000/images",
+  remote_storage_pool_size: 50,
+  remote_storage_pool_max_overflow: 0
 ```
 
 Fetch dependencies and run the server:
@@ -65,9 +69,15 @@ http://{{your_app_name}}.herokuapp.com/0B58FWWTQqRCMek4zUWhCU0J3QUU/128x128
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+## Performance
+
+ImgOut processed more than 3k thumbs in a minute on Heroku free dyno.
+
+http://bit.ly/2bYRnpp
+
 # Todo
 
-[ ] Add stats
+[ ] Add metrics
 
 # License
 

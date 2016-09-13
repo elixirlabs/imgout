@@ -2,7 +2,7 @@
   "name": "ImgOut",
   "description": "Image Thumbnail Microservice with Elixir OTP",
   "repository": "https://github.com/mustafaturan/imgout",
-  "keywords": ["thumbnail", "image", "microservice", "elixir"],
+  "keywords": ["thumbnail", "image", "graphicsmagick", "imagemagick", "microservice", "elixir"],
   "buildpacks": [
     { "url": "https://github.com/a2ikm/heroku-buildpack-libjpeg62.git" },
     { "url": "https://github.com/Xerpa/heroku-buildpack-graphicsmagick.git" },
@@ -13,7 +13,7 @@
   "env": {
     "CACHE_POOL_SIZE": {
       "description": "Cache worker pool size",
-      "value": "20"
+      "value": "50"
     },
     "CACHE_POOL_MAX_OVERFLOW": {
       "description": "Cache worker max pool overflow",
@@ -48,12 +48,12 @@
       "required": false
     },
     "REMOTE_STORAGE_URL": {
-      "description": "Remote storage url endpoint",
+      "description": "Remote storage url endpoint. It can be any http/https url which represents source of images. If you just want to test then you can enter http://your_app_name.herokuapp.com/images",
       "value": ""
     },
     "REMOTE_STORAGE_POOL_SIZE": {
       "description": "Remote storage worker pool size",
-      "value": "20"
+      "value": "50"
     },
     "REMOTE_STORAGE_POOL_MAX_OVERFLOW": {
       "description": "Remote storage worker pool max overflow",
@@ -61,7 +61,7 @@
     },
     "GM_POOL_SIZE": {
       "description": "Image processor pool size",
-      "value": "20"
+      "value": "25"
     },
     "GM_POOL_MAX_OVERFLOW": {
       "description": "Image processor max pool overflow",
@@ -69,7 +69,7 @@
     },
     "GM_TIMEOUT": {
       "description": "Image processor timeout",
-      "value": "15000"
+      "value": "5000"
     },
     "SERVER_ACCEPTORS": {
       "description": "Cowboy server acceptors",
