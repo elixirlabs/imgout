@@ -1,7 +1,7 @@
 {
   "name": "ImgOut",
   "description": "Image Thumbnail Microservice with Elixir OTP",
-  "repository": "https://github.com/mustafaturan/imgout",
+  "repository": "https://github.com/mustafaturan/imgout/tree/no_pool_for_cache_and_storage_workers",
   "keywords": ["thumbnail", "image", "microservice", "elixir"],
   "buildpacks": [
     { "url": "https://github.com/a2ikm/heroku-buildpack-libjpeg62.git" },

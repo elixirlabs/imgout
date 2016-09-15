@@ -1,13 +1,13 @@
 # ImgOut [WIP]
 
-On the fly thumbnail generator microservice using Elixir/OTP and exmagick.
+On the fly thumbnail generator microservice using Elixir/OTP and exmagick. This branch(no_pool_for_cache_and_storage_workers) created for only experimental purposes.
 
 # Usage
 
-Install graphsmagick, memcached and fetch the repo:
+Install graphicsmagick, memcached and fetch the repo:
 
 ```shell
-brew install graphmagick
+brew install graphicsmagick
 brew install memcached
 git clone git@github.com:mustafaturan/imgout.git
 cd imgout
@@ -57,6 +57,14 @@ height: integer
 You can use default config while deploying heroku.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+## Performance
+
+ImgOut processed more than 3k thumbs in a minute on Heroku free dyno. Note this performance metrics are valid only for 'master branch' and not for the other branches like 'no_pool_for_cache_and_storage_workers branch'. This branch('no_pool_for_cache_and_storage_workers') created for only experimantal purposes. To deploy from master branch you need to visit master branch and then click 'Heroku Deploy' button.
+
+*Metrics:* http://bit.ly/2bYRnpp
+
+*Master Branch:* https://github.com/mustafaturan/imgout/tree/master
 
 # Todo
 
