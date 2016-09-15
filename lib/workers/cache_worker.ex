@@ -5,6 +5,8 @@ defmodule ImgOut.CacheWorker do
 
   use GenServer
 
+  @behaviour ImgOut.CacheInterface
+
   ## Public api
 
   @doc """

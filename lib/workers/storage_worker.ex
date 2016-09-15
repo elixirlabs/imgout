@@ -5,6 +5,8 @@ defmodule ImgOut.StorageWorker do
 
   use GenServer
 
+  @behaviour ImgOut.StorageInterface
+
   ## Public api
 
   @doc """

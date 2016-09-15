@@ -5,6 +5,7 @@ defmodule ImgOut.ImageWorker do
 
   use GenServer
 
+  @behaviour ImgOut.ImageInterface
   @timeout Application.get_env(:imgout, :gm_timeout)
 
   ## Public api
