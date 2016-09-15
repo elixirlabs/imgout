@@ -4,7 +4,7 @@ On the fly thumbnail generator microservice using Elixir/OTP and exmagick.
 
 # Usage
 
-Install graphsmagick, memcached and fetch the repo:
+Install graphicsmagick, memcached and fetch the repo:
 
 ```shell
 brew install graphicsmagick # necessary for exmagick
@@ -69,11 +69,15 @@ http://{{your_app_name}}.herokuapp.com/0B58FWWTQqRCMek4zUWhCU0J3QUU/128x128
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+## Experiments
+
+ImgOut has 2 other experimental branches, take a look and deploy them to heroku to see which branch is the most performant and why. Each branch has its own 'Heroku Deploy' button, so do not hesitate to deploy and see with your eyes. If you have time also read my blog post, I tried to explain all of them(https://medium.com/@mustafaturan/re-architecting-with-elixir-otp-and-pattern-matching-b452213c7947)
+
 ## Performance
 
 ImgOut processed more than 3k thumbs in a minute on Heroku free dyno.
 
-http://bit.ly/2bYRnpp
+*Metrics:* http://bit.ly/2bYRnpp
 
 # Todo
 
