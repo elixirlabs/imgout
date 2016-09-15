@@ -1,6 +1,6 @@
 # ImgOut
 
-On the fly thumbnail generator microservice using Elixir/OTP and exmagick. This branch(call_services_directly_from_server) created only experimental purposes.
+On the fly thumbnail generator microservice using Elixir/OTP and exmagick. This branch(call_services_directly_from_server) created for only experimental purposes.
 
 # Usage
 
@@ -64,9 +64,11 @@ http://{{your_app_name}}.herokuapp.com/0B58FWWTQqRCMek4zUWhCU0J3QUU/128x128
 
 ## Performance
 
-ImgOut processed more than 3k thumbs in a minute on Heroku free dyno.
+ImgOut processed more than 3k thumbs in a minute on Heroku free dyno. Note this performance metrics are valid only for 'master branch' and not for the other branches like 'call_services_directly_from_server branch'. This branch('call_services_directly_from_server') created for only experimantal purposes. To deploy from master branch you need to visit master branch and then click 'Heroku Deploy' button.
 
-http://bit.ly/2bYRnpp
+*Metrics:* http://bit.ly/2bYRnpp
+
+*Master Branch:* https://github.com/mustafaturan/imgout/tree/master
 
 # Todo
 
