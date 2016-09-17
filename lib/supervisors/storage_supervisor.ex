@@ -5,8 +5,8 @@ defmodule ImgOut.StorageSupervisor do
 
   use Supervisor
 
-  @pool_size Application.get_env(:imgout, :remote_stroge_pool_size)
-  @pool_max_overflow Application.get_env(:imgout, :remote_stroge_pool_max_overflow)
+  @pool_size Application.get_env(:imgout, :remote_storage_pool_size)
+  @pool_max_overflow Application.get_env(:imgout, :remote_storage_pool_max_overflow)
 
   @doc false
   def start_link,
