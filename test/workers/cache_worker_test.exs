@@ -1,6 +1,6 @@
-defmodule ImgOut.CacheServiceTest do
+defmodule ImgOut.CacheWorkerTest do
   use ExUnit.Case, async: true
-  alias ImgOut.CacheService, as: Cache
+  alias ImgOut.CacheWorker, as: Cache
 
   @key "some_key"
   @new_key "new_key"

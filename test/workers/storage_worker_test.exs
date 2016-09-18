@@ -1,7 +1,7 @@
-defmodule ImgOut.StorageServiceTest do
+defmodule ImgOut.StorageWorkerTest do
   use ExUnit.Case, async: true
   import Mock
-  alias ImgOut.StorageService, as: Storage
+  alias ImgOut.StorageWorker, as: Storage
 
   @id "elixir.png"
   @base_url Application.get_env(:imgout, :remote_storage_url)

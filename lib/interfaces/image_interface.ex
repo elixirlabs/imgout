@@ -4,5 +4,5 @@ defmodule ImgOut.ImageInterface do
   """
 
   @callback thumb({:error, integer, map}, any) :: {:error, integer, map}
-  @callback thumb({:ok, binary}, map) :: {:ok, binary} | {:error, integer, map}
+  @callback thumb({:ok, binary}, map) :: {:ok, binary, charlist} | {:error, integer, map}
 end
