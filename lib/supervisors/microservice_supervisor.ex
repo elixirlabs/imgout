@@ -1,4 +1,4 @@
-defmodule ImgOut.ServerSupervisor do
+defmodule ImgOut.MicroserviceSupervisor do
   @moduledoc """
   A server supervisor using Cowboy web server
   """
@@ -11,7 +11,7 @@ defmodule ImgOut.ServerSupervisor do
 
   @doc false
   def start_link do
-    {:ok, _} = Plug.Adapters.Cowboy.http ImgOut.ServerWorker, [],
+    {:ok, _} = Plug.Adapters.Cowboy.http ImgOut.MicroserviceWorker, [],
       port: String.to_integer(System.get_env("PORT") || "4000"),
       acceptors: Application.get_env(:imgout, :acceptors),
       compress: true

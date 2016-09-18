@@ -10,7 +10,7 @@ defmodule ImgOut do
     import Supervisor.Spec, warn: false
 
     children = [
-      supervisor(ImgOut.ServerSupervisor, []),
+      supervisor(ImgOut.MicroserviceSupervisor, []),
       supervisor(ImgOut.ImageSupervisor, []),
       supervisor(ImgOut.StorageSupervisor, [])
     ]
