@@ -21,7 +21,7 @@
     },
     "MEMCACHE_POOL_SIZE": {
       "description": "Memcache connection pool size",
-      "value": "255"
+      "value": "50"
     },
     "MEMCACHE_POOL_MAX_OVERFLOW": {
       "description": "Memcache max pool overflow",
