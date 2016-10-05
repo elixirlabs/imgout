@@ -50,7 +50,7 @@ Open your browser add visit the url:
 
 ```
 
-http://localhost:4000/{{image_name}}/{{width}}x{{height}}
+http://localhost:4000/thumb/{{image_name}}/{{width}}x{{height}}
 
 image_name: name of the image under your `public/images` folder or remote file name
 width: integer
@@ -61,11 +61,11 @@ On production, you need to change remote storage url to source of original image
 
 # Deploy to Heroku
 
-You can use default config while deploying heroku. For test purposes change REMOTE_STORAGE_URL to "http://{{your_app_name}}.herokuapp.com/images" then visit http://{{your_app_name}}.herokuapp.com/{{image_name}}/{{width}}x{{height}}
+You can use default config while deploying heroku. For test purposes change REMOTE_STORAGE_URL to "http://{{your_app_name}}.herokuapp.com/images" then visit http://{{your_app_name}}.herokuapp.com/thumb/{{image_name}}/{{width}}x{{height}}
 
 There is a sample image under public/images folder with the name '0B58FWWTQqRCMek4zUWhCU0J3QUU' so you can visit:
 
-http://{{your_app_name}}.herokuapp.com/0B58FWWTQqRCMek4zUWhCU0J3QUU/128x128
+http://{{your_app_name}}.herokuapp.com/thumb/0B58FWWTQqRCMek4zUWhCU0J3QUU/128x128
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
@@ -78,6 +78,8 @@ ImgOut has 2 other experimental branches, take a look and deploy them to heroku 
 ImgOut processed more than 3k thumbs in a minute on Heroku free dyno.
 
 *Metrics:* http://bit.ly/2bYRnpp
+
+*Live Service metrics endpoint:* /metrics/thumb
 
 # Todo
 
