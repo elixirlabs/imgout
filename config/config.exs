@@ -6,4 +6,4 @@ config :metrex,
   ttl: 900,
   counters: [],
   meters: [],
-  hooks: Metrex.Hook.Default
+  hooks: Imgout.Logger.Metrex
