@@ -9,8 +9,6 @@ defmodule ImgOut.ThumbMicroservice do
   @doc """
   Fetches remote image from remote storage, caches it. Then generates thumbnail
   for given dimensions.
-
-
   """
   def process(_, "x"),
     do: {:error, 422, %{dimensions: "Invalid dimension format. Tip: {w}x{h}"}}
@@ -18,6 +16,12 @@ defmodule ImgOut.ThumbMicroservice do
     gen_thumb(id,
       Regex.named_captures(~r/(^(?<width>\d*)x(?<height>\d*)$)/, dimensions))
   end
+
+  @doc """
+  Returns service name
+  """
+  def service_name,
+    do: "thumb"
 
   defp gen_thumb(_, nil),
     do: {:error, 422, %{dimensions: "Invalid dimension format. Tip: {w}x{h}"}}

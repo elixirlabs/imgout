@@ -58,4 +58,8 @@ defmodule ImgOut.ThumbMicroserviceTest do
       refute is_nil(reason)
     end
   end
+
+  test "service_name" do
+    assert ThumbMicroservice.service_name == "thumb"
+  end
 end

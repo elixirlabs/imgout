@@ -13,11 +13,11 @@ defmodule ImgOut.MicroserviceWorkerTest do
     {:ok, conn: conn(:get, "/", nil)}
   end
 
-  test "a :GET to /:id/:dimensions with exisiting id and valid dimensions", %{conn: conn} do
+  test "a :GET to /thumb/:id/:dimensions with exisiting id and valid dimensions", %{conn: conn} do
     dimensions = "128x128"
     with_mock ThumbMicroservice, [process: fn(@id, dimensions) ->
       {:ok, @file_content, "image/png"} end] do
-      conn = conn(:get, "/#{@id}/#{dimensions}")
+      conn = conn(:get, "/thumb/#{@id}/#{dimensions}")
       conn = Microservice.call(conn, @opts)
 
       assert called ThumbMicroservice.process(@id, dimensions)
@@ -27,9 +27,9 @@ defmodule ImgOut.MicroserviceWorkerTest do
     end
   end
 
-  test "a :GET to /:id/:dimensions with exisiting id and invalid dimensions", %{conn: conn} do
+  test "a :GET to /thumb/:id/:dimensions with exisiting id and invalid dimensions", %{conn: conn} do
     dimensions = "x"
-    conn = conn(:get, "/#{@id}/#{dimensions}")
+    conn = conn(:get, "/thumb/#{@id}/#{dimensions}")
     conn = Microservice.call(conn, @opts)
 
     assert conn.state == :sent
@@ -37,11 +37,11 @@ defmodule ImgOut.MicroserviceWorkerTest do
     assert is_binary(conn.resp_body)
   end
 
-  test "a :GET to /:id/:dimensions with non-exisiting id", %{conn: conn} do
+  test "a :GET to /thumb/:id/:dimensions with non-exisiting id", %{conn: conn} do
     dimensions = "128x128"
     with_mock ThumbMicroservice, [process: fn(@id, dimensions) ->
       {:error, 404, %{page: "Not found."}} end] do
-      conn = conn(:get, "/#{@id}/#{dimensions}")
+      conn = conn(:get, "/thumb/#{@id}/#{dimensions}")
       conn = Microservice.call(conn, @opts)
 
       assert called ThumbMicroservice.process(@id, dimensions)
@@ -49,6 +49,14 @@ defmodule ImgOut.MicroserviceWorkerTest do
       assert conn.status == 404
       assert is_binary(conn.resp_body)
     end
+  end
+
+  test "a :GET to /metrics/thumb", %{conn: conn} do
+    conn = conn(:get, "/metrics/thumb")
+    conn = Microservice.call(conn, @opts)
+
+    assert conn.state == :sent
+    assert conn.status == 200
   end
 
   test "a :GET to /unknown", %{conn: conn} do

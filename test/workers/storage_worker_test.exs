@@ -1,5 +1,5 @@
 defmodule ImgOut.StorageWorkerTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   import Mock
   alias ImgOut.StorageWorker, as: Storage
 
