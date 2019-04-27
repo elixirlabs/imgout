@@ -1,4 +1,4 @@
-# ImgOut [WIP]
+# ImgOut [Sample Project for Meetup Talk]
 
 On the fly thumbnail generator microservice using Elixir/OTP and exmagick.
 
@@ -9,7 +9,7 @@ Install graphicsmagick, memcached and fetch the repo:
 ```shell
 brew install graphicsmagick # necessary for exmagick
 brew install memcached # necessary for caching
-git clone git@github.com:mustafaturan/imgout.git
+git clone git@github.com:elixirlabs/imgout.git
 cd imgout
 ```
 
@@ -71,7 +71,7 @@ http://{{your_app_name}}.herokuapp.com/thumb/0B58FWWTQqRCMek4zUWhCU0J3QUU/128x12
 
 ## Experiments
 
-ImgOut has 2 other experimental branches, take a look and deploy them to heroku to see which branch is the most performant and why. Each branch has its own 'Heroku Deploy' button, so do not hesitate to deploy and see with your eyes. If you have time also read my blog post, I tried to explain all of them(https://medium.com/@mustafaturan/re-architecting-with-elixir-otp-and-pattern-matching-b452213c7947)
+ImgOut has 2 other experimental branches, take a look and deploy them to heroku to see which branch is the most performant and why. Each branch has its own 'Heroku Deploy' button, so do not hesitate to deploy and see with your eyes. If you have time also read my blog post, I tried to explain all of them(https://medium.com/elixirlabs/re-design-with-elixir-otp-and-pattern-matching-b452213c7947)
 
 ## Performance
 
@@ -83,7 +83,7 @@ ImgOut processed more than 3k thumbs in a minute on Heroku free dyno.
 
 ### On Heroku Free Dyno
 
-Data collected with `metrex` package for 60 seconds visualization on 0-100 active clients using loader.io
+Data collected with deprecated `metrex` package for 60 seconds visualization on 0-100 active clients using loader.io
 
 ```js
 {
@@ -164,12 +164,6 @@ Data collected with `metrex` package for 60 seconds visualization on 0-100 activ
   }
 }
 ```
-
-# Todo
-
-[x] Add metrics
-[ ] Create remote storage backend adapter pattern both write/read
-[ ] Add S3 as backend adapter
 
 # License
 
